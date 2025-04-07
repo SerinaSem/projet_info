@@ -1,5 +1,8 @@
 import sqlite3
 from models.horaire import Horaire
+from database.init_db import conn
+from datetime import datetime, timedelta
+
 
 DB_PATH = "planning_resto.db"
 
@@ -57,7 +60,6 @@ def modifier_horaire(horaire: Horaire):
     conn.close()
     print(f"✏️ Horaire ID {horaire.id} modifié.")
 
-from datetime import datetime, timedelta
 
 def get_total_heures_employe(id_employe: int) -> float:
     horaires = get_horaires_employe(id_employe)

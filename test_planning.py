@@ -9,12 +9,12 @@ from services.planning_service import generer_planning_semaine
 
 
 # Générer tout le planning de la semaine
-#generer_planning_semaine(1)
+generer_planning_semaine(1)
 
 
 from services.planning_service import afficher_planning_employe
 
-afficher_planning_employe(1)
-afficher_planning_employe(2)
+#afficher_planning_employe(1)
+#afficher_planning_employe(2)
 
 
