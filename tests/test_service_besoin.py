@@ -2,7 +2,7 @@ from models.besoin import Besoin
 from services.besoin_service import *
 
 # Ajouter un besoin
-b1 = Besoin(None, 1, "Vendredi", "08:00", "15:00", 2)
+b1 = Besoin(None, 1, "Lundi", "12:00", "13:00", 3)
 ajouter_besoin(b1)
 
 # Lire les besoins du restaurant 1

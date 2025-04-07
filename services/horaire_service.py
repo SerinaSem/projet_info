@@ -56,3 +56,6 @@ def modifier_horaire(horaire: Horaire):
     conn.commit()
     conn.close()
     print(f"✏️ Horaire ID {horaire.id} modifié.")
+
+
+

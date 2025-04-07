@@ -3,8 +3,9 @@ from services.disponibilite_service import get_disponibilites_employe
 from services.employe_service import recuperer_tous_employes
 from services.horaire_service import ajouter_horaire
 from models.horaire import Horaire
+from datetime import datetime, timedelta
+from services.horaire_service import get_total_heures_employe
 
-from datetime import datetime
 
 def afficher_donnees_disponibilites_et_besoins(id_restaurant):
     print(f"\n📋 Chargement des besoins pour le restaurant {id_restaurant}...\n")
@@ -54,3 +55,13 @@ def planning_simple_pour_jour(id_restaurant: int, jour_cible: str):
 
             if nb_assignes >= besoin.nb_employes:
                 break  # besoin rempli
+
+
+def generer_planning_semaine(id_restaurant: int):
+    jours_semaine = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"]
+
+    for jour in jours_semaine:
+        print(f"\n📆 ====== {jour.upper()} ======")
+        planning_simple_pour_jour(id_restaurant, jour)
+
+    print("\n✅ Génération complète du planning de la semaine terminée.")
