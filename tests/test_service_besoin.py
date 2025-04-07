@@ -2,18 +2,18 @@ from models.besoin import Besoin
 from services.besoin_service import *
 
 # Ajouter un besoin
-b1 = Besoin(None, 1, "2025-04-10", "12:00", "15:00", 3)
+b1 = Besoin(None, 1, "Vendredi", "08:00", "15:00", 2)
 ajouter_besoin(b1)
 
 # Lire les besoins du restaurant 1
-besoins = get_besoins_par_restaurant(1)
-for b in besoins:
-    print(f"{b.jour} de {b.heure_debut} à {b.heure_fin} - {b.nb_employes} employés")
+#besoins = get_besoins_par_restaurant(1)
+#for b in besoins:
+#    print(f"{b.jour} de {b.heure_debut} à {b.heure_fin} - {b.nb_employes} employés")
 
 # Modifier un besoin
-b_modif = besoins[0]
-b_modif.nb_employes = 4
-modifier_besoin(b_modif)
+#b_modif = besoins[0]
+#b_modif.nb_employes = 1
+#modifier_besoin(b_modif)
 
 # Supprimer un besoin
-supprimer_besoin(b_modif.id)
+#supprimer_besoin(4)

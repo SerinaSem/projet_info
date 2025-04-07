@@ -47,3 +47,18 @@ def modifier_disponibilite(dispo: Disponibilite):
     conn.commit()
     conn.close()
     print(f"✏️ Disponibilité ID {dispo.id} modifiée.")
+
+def ajouter_dispos_personnalisees(id_employe: int, horaires_par_jour: dict):
+    """
+    horaires_par_jour = {
+        "Lundi": ("10:00", "14:00"),
+        "Mardi": ("12:00", "16:00"),
+        "Jeudi": ("09:00", "13:00"),
+        ...
+    }
+    """
+    for jour, (heure_debut, heure_fin) in horaires_par_jour.items():
+        dispo = Disponibilite(None, id_employe, jour, heure_debut, heure_fin)
+        ajouter_disponibilite(dispo)
+
+    print(f"✅ Disponibilités personnalisées ajoutées pour l'employé ID {id_employe}")
