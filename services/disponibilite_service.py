@@ -62,3 +62,11 @@ def ajouter_dispos_personnalisees(id_employe: int, horaires_par_jour: dict):
         ajouter_disponibilite(dispo)
 
     print(f"✅ Disponibilités personnalisées ajoutées pour l'employé ID {id_employe}")
+
+
+def ajouter_disponibilites_semaine(id_employe: int, heure_debut: str, heure_fin: str):
+    jours_semaine = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"]
+    for jour in jours_semaine:
+        dispo = Disponibilite(None, id_employe, jour, heure_debut, heure_fin)
+        ajouter_disponibilite(dispo)
+    print(f"✅ Dispos semaine ajoutées pour employé {id_employe}")

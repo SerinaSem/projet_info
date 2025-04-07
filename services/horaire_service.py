@@ -57,5 +57,17 @@ def modifier_horaire(horaire: Horaire):
     conn.close()
     print(f"✏️ Horaire ID {horaire.id} modifié.")
 
+from datetime import datetime, timedelta
+
+def get_total_heures_employe(id_employe: int) -> float:
+    horaires = get_horaires_employe(id_employe)
+    total = timedelta()
+
+    for h in horaires:
+        debut = datetime.strptime(h.heure_debut, "%H:%M")
+        fin = datetime.strptime(h.heure_fin, "%H:%M")
+        total += (fin - debut)
+
+    return total.total_seconds() / 3600  # renvoie les heures (float)
 
 

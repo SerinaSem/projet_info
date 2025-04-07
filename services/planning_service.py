@@ -5,6 +5,7 @@ from services.horaire_service import ajouter_horaire
 from models.horaire import Horaire
 from datetime import datetime, timedelta
 from services.horaire_service import get_total_heures_employe
+from services.horaire_service import get_horaires_employe
 
 
 def afficher_donnees_disponibilites_et_besoins(id_restaurant):
@@ -65,3 +66,16 @@ def generer_planning_semaine(id_restaurant: int):
         planning_simple_pour_jour(id_restaurant, jour)
 
     print("\n✅ Génération complète du planning de la semaine terminée.")
+
+#Affichage du planning hebdomadaire d’un employé
+def afficher_planning_employe(id_employe: int):
+    print(f"\n📅 Planning de l'employé ID {id_employe} :")
+    horaires = get_horaires_employe(id_employe)
+    
+    if not horaires:
+        print("Aucun horaire trouvé.")
+        return
+
+    horaires_triees = sorted(horaires, key=lambda h: h.jour)
+    for h in horaires_triees:
+        print(f"🕒 {h.jour} : {h.heure_debut} → {h.heure_fin}")
